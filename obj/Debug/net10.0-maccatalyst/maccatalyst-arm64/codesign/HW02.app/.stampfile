@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/tomasolbert/Developer/pb-178/HW02/HW02/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/tomasolbert/Developer/pb-178/HW02/HW02/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/HW02.app

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:HW02.ViewModels"
+             xmlns:entities="clr-namespace:HW02.Models.Entities"
+             x:Class="HW02.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             Title="PixelFill"
+             BackgroundColor="#F5F5F5">
+    
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Settings">
+            
+            <MenuFlyoutItem Text="Undo" Command="{Binding UndoLastActionCommand}">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Ctrl" Key="Z" />
+                    <KeyboardAccelerator Modifiers="Cmd" Key="Z" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+            
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    
+    <Grid RowDefinitions="Auto, *, Auto">
+        
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="10">
+            
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="10">
+                
+                <Label Text="Grid Size:" 
+                       VerticalOptions="Center" 
+                       TextColor="Black" />
+                    
+                <Entry x:Name="GridSizeEntry" 
+                       Text="{Binding GridSizeInput, Mode=TwoWay}" 
+                       WidthRequest="60" 
+                       Keyboard="Numeric" 
+                       Background="LightGray"
+                       TextColor="Black" />
+                    
+                <Button Text="Create canvas" 
+                    Command="{Binding CreateGridCommand}" />
+                    
+                <Button x:Name="EraserButton" 
+                        ImageSource="eraser.png"
+                        Command="{Binding ToggleEraserCommand}"
+                        WidthRequest="40" 
+                        HeightRequest="40" 
+                        Padding="8">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsEraserActive}" Value="True">
+                            <Setter Property="BackgroundColor" Value="DarkGray" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsEraserActive}" Value="False">
+                            <Setter Property="BackgroundColor" Value="LightGray" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                
+                    
+                <Button Text="Undo" 
+                    Command="{Binding UndoLastActionCommand}" 
+                        BackgroundColor="Gray" 
+                        TextColor="White" />
+                    
+                <Button Text="Clear canvas" 
+                    Command="{Binding ClearCanvasCommand}" 
+                        BackgroundColor="DarkRed" 
+                        TextColor="White" />
+                
+                <Button Text="Save" 
+                        Command="{Binding SaveCommand}" 
+                        BackgroundColor="DarkGreen" 
+                        TextColor="White" />
+                
+                <Button Text="Load" 
+                        Command="{Binding LoadCommand}" 
+                        BackgroundColor="DarkBlue" 
+                        TextColor="White" />
+                <Button Text="Delete Project" 
+                        Command="{Binding DeleteProjectCommand}" />
+                
+            </HorizontalStackLayout>
+        
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label Text="Zoom:" 
+                       VerticalOptions="Center" 
+                       TextColor="Black" 
+                       FontAttributes="Bold"/>
+                
+                <Slider x:Name="ZoomSlider" 
+                        Minimum="0.4" Maximum="5.0" 
+                        Value="1" WidthRequest="200" 
+                        ValueChanged="OnZoomSliderChanged" />
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>    
+        
+        <ScrollView x:Name="CanvasScrollView" 
+                    Grid.Row="1" 
+                    Orientation="Both" 
+                    Padding="20">
+            
+            <Grid x:Name="CanvasGrid">
+                <Grid.GestureRecognizers>
+                    <PinchGestureRecognizer PinchUpdated="OnCanvasPinched" />
+                </Grid.GestureRecognizers>
+
+                <GraphicsView x:Name="StitchCanvas" 
+                              EndInteraction="OnCanvasClicked"
+                              HorizontalOptions="Center" 
+                              VerticalOptions="Center" />
+            </Grid>
+            
+        </ScrollView>
+        
+        
+        <VerticalStackLayout Grid.Row="2" Spacing="10" Margin="0, 0, 0, 20">
+            
+            <Label Text="{Binding SelectedColor.Name, FallbackValue='', TargetNullValue=''}"
+                   HorizontalOptions="Center"
+                   FontSize="16"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HeightRequest="25" />
+
+            <CollectionView x:Name="ColorPalette"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedColor, Mode=TwoWay}"
+                            ItemsSource="{Binding Colors}"
+                            HeightRequest="80">
+                
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="entities:FlossColor">
+                        <VerticalStackLayout VerticalOptions="Center">
+                            
+                            <BoxView Color="{Binding Hex}" 
+                                     WidthRequest="45" 
+                                     HeightRequest="45"
+                                     CornerRadius="5" />
+                            
+                            <Label Text="{Binding Floss}" 
+                                   FontSize="12" 
+                                   TextColor="Black"
+                                   HorizontalOptions="Center" />
+                            
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
