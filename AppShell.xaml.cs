@@ -1,4 +1,4 @@
-﻿namespace HW02;
+﻿namespace PixelFill;
 
 public partial class AppShell : Shell
 {

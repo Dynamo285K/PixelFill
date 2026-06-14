@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 
-using HW02.Models.Services;
-using HW02.ViewModels;
-using HW02.Views;
+using PixelFill.Models.Services;
+using PixelFill.ViewModels;
+using PixelFill.Views;
 
-namespace HW02;
+namespace PixelFill;
 
 public static class MauiProgram
 {

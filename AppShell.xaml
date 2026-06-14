@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="HW02.AppShell"
+    x:Class="PixelFill.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:HW02"
-    xmlns:views="clr-namespace:HW02.Views"
-    Title="HW02">
+    xmlns:local="clr-namespace:PixelFill"
+    xmlns:views="clr-namespace:PixelFill.Views"
+    Title="PixelFill">
 
     <ShellContent
         Title="Home"

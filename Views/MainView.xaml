@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:HW02.ViewModels"
-             xmlns:entities="clr-namespace:HW02.Models.Entities"
-             x:Class="HW02.Views.MainView"
+             xmlns:vm="clr-namespace:PixelFill.ViewModels"
+             xmlns:entities="clr-namespace:PixelFill.Models.Entities"
+             x:Class="PixelFill.Views.MainView"
              x:DataType="vm:MainViewModel"
              Title="PixelFill"
              BackgroundColor="#F5F5F5">

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace HW02;
+namespace PixelFill;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

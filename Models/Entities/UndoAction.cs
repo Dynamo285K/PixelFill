@@ -1,4 +1,4 @@
-namespace HW02.Models.Entities;
+namespace PixelFill.Models.Entities;
 
 public class UndoAction
 {

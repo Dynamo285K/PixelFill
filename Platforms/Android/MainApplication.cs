@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace HW02;
+namespace PixelFill;
 
 [Application]
 public class MainApplication : MauiApplication

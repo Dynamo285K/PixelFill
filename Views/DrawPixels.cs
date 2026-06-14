@@ -1,5 +1,5 @@
-using HW02.Models.Entities;
-namespace HW02.Views;
+using PixelFill.Models.Entities;
+namespace PixelFill.Views;
 
 public class DrawPixels : IDrawable
 {

@@ -1,6 +1,6 @@
-using HW02.ViewModels;
+using PixelFill.ViewModels;
 
-namespace HW02.Views;
+namespace PixelFill.Views;
 
 public partial class MainView
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace HW02;
+namespace PixelFill;
 
 public partial class App : Application
 {

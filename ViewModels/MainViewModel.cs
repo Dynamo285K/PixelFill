@@ -1,9 +1,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using HW02.Models.Entities;
-using HW02.Models.Services;
+using PixelFill.Models.Entities;
+using PixelFill.Models.Services;
 
-namespace HW02.ViewModels;
+namespace PixelFill.ViewModels;
 
 public partial class MainViewModel(IDialogService dialogService, ProjectFileService fileService, FlossColorService flossColorService) : ObservableObject
 {

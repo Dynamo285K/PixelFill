@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace HW02;
+namespace PixelFill;
 
 public class Program
 {

@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Alerts;
 
-namespace HW02.Models.Services;
+namespace PixelFill.Models.Services;
 
 public interface IDialogService
 {

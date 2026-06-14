@@ -1,6 +1,6 @@
-using HW02.Models.Entities;
+using PixelFill.Models.Entities;
 
-namespace HW02.Models.Services;
+namespace PixelFill.Models.Services;
 
 public class FlossColorService
 {
